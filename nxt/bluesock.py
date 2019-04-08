@@ -65,7 +65,10 @@ class BlueSock(object):
     def recv(self):
         data = self.sock.recv(2)
         l0 = data[0]
-        l1 = data[1]
+        try:
+            l1 = data[1]
+        except:
+            l1 = 0
         plen = l0 + (l1 << 8)
         data = self.sock.recv(plen)
         if self.debug:
