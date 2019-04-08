@@ -47,7 +47,7 @@ def set_output_state(opcode, port, power, mode, regulation, turn_ratio,
     run_state, tacho_limit):
     tgram = _create(opcode, False)
     tgram.add_u8(port)
-    tgram.add_s8(power)
+    tgram.add_s8(int(power))
     tgram.add_u8(mode)
     tgram.add_u8(regulation)
     tgram.add_s8(turn_ratio)
